@@ -1,0 +1,13 @@
+Feature: SIM card activation
+
+  # 这个 feature 描述我们微服务对 SIM 卡激活的行为：
+  # - 成功激活的情况
+  # - 失败激活的情况
+
+  Scenario: Successful SIM card activation
+    When I activate a SIM card with ICCID "1255789453849037777" and email "success@example.com"
+    Then the activation record with id 1 should be active
+
+  Scenario: Failed SIM card activation
+    When I activate a SIM card with ICCID "8944500102198304826" and email "failure@example.com"
+    Then the activation record with id 2 should be inactive
